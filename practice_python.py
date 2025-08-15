@@ -165,3 +165,19 @@ latitude = coordinates[0]
 longitude = coordinates[1]
 
 print(f"Latitude: {latitude}, Longitude: {longitude}")
+
+
+
+# Lists 
+# A list is a collection of ordered, mutable (changeable) elements.
+# Defining a list of product names
+product_names = ["Widget A", "Widget B", "Widget C"]
+
+# Adding a new product
+product_names.append("Widget D")
+
+# Removing a product
+product_names.remove("Widget B")
+
+# Printing the updated list
+print("Updated product names:", product_names)
