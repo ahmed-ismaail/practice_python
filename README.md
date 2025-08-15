@@ -3,6 +3,12 @@
 This is a simple project to practice python
 
 ## practicing the below
+* Variables
+* If Else Statements
+* Operators
+* Functions
+* Loops
+* String Manipulation
 * Python Basics for Data Engineering
 * Python Collections
 * File Handling in Python
