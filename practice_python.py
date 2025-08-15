@@ -110,3 +110,8 @@ print(add(3, 5))
 numbers = [1, 2, 3, 4, 5]
 squared = list(map(lambda x: x ** 2, numbers))  # Squares each number in the list 
 print("Squared numbers:", squared)
+
+
+words = ["hello", "world", "python"]
+uppercase_words = list(map(lambda x: x.upper(), words))  # upper each word in the list
+print("uppercase words:", uppercase_words)
