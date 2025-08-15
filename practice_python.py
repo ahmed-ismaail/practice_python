@@ -65,3 +65,20 @@ for product, stock in zip(products, stock_levels):
         print(f"{product} is in medium stock")
     else:
         print(f"{product} is in low stock")    
+
+
+#replace the above 2 lists with dictionaries
+products = {
+    "a": 200,
+    "b": 150,
+    "c": 80,
+    "d": 50
+}
+# Iterate through the dictionary and print stock levels
+for product, stock in products.items():
+    if stock > 100:
+        print(f"{product} is in high stock")
+    elif stock > 50:
+        print(f"{product} is in medium stock")
+    else:
+        print(f"{product} is in low stock")   
