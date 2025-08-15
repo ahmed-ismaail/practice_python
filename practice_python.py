@@ -198,3 +198,27 @@ product_ids.add(105)
 product_ids.discard(102)
 
 print("Unique product IDs:", product_ids)
+
+
+
+# Dictionaries
+# A dictionary is a collection of key-value pairs, where each key is unique.
+# Defining a dictionary for a product with key-value pairs
+product_info = {
+    "Product ID": 101,
+    "Name": "Widget A",
+    "Price": 9.99,
+    "Stock": 100
+}
+
+# Accessing values by keys
+product_name = product_info["Name"]
+product_price = product_info["Price"]
+
+# Adding a new key-value pair
+product_info["testkey"] = "testvalue"
+
+# Updating the stock count
+product_info["Stock"] = 120
+
+print("Product Information:", product_info)
