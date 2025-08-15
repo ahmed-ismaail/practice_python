@@ -133,3 +133,9 @@ sample_text = "This is a sample text for string manipulation."
 print(f" first 10 characters: {sample_text[:10]}")  # Slicing to get the first 10 characters
 print(f" last 13 characters: {sample_text[-13:]}")  # Slicing to get the last 13 characters
 print(f" middle 11 characters: {sample_text[10:21]}")  # Slicing to get the middle 11 characters
+
+
+# String Methods
+print("Lowercase:", sample_text.lower())
+print("Uppercase:", sample_text.upper())
+print("Replace:", sample_text.replace("text", "example"))
