@@ -99,3 +99,9 @@ def calculate_average_stock(stock_list):
 # Using the function with stock levels from product_data
 average_stock = calculate_average_stock(stock_levels)
 print("Average stock level:", average_stock)
+
+
+
+# Syntax example for a lambda function
+add = lambda x, y: x + y  # Adds two numbers
+print(add(3, 5))
