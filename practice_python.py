@@ -126,3 +126,10 @@ print(greeting)
 
 department = "BI REPORTING"
 print(f"welcome to {employee_name} in {department} department")  # f-string for formatted string literals
+
+
+# slicing example
+sample_text = "This is a sample text for string manipulation."
+print(f" first 10 characters: {sample_text[:10]}")  # Slicing to get the first 10 characters
+print(f" last 13 characters: {sample_text[-13:]}")  # Slicing to get the last 13 characters
+print(f" middle 11 characters: {sample_text[10:21]}")  # Slicing to get the middle 11 characters
