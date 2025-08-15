@@ -42,3 +42,13 @@ x = True
 y = False
 print("Logical AND:", x and y)
 print("Logical OR:", x or y)
+
+
+#if else statements
+product_stock = 200
+if product_stock > 150:
+    print("Product is in high stock")
+elif product_stock > 100:
+    print("Product is in medium stock")
+else:
+    print("Product is in low stock")
