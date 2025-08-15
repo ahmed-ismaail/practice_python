@@ -122,3 +122,7 @@ employee_name = "ahmed zayan"
 # Concatenation
 greeting = "Hello, " + employee_name + "!"
 print(greeting)
+
+
+department = "BI REPORTING"
+print(f"welcome to {employee_name} in {department} department")  # f-string for formatted string literals
