@@ -181,3 +181,20 @@ product_names.remove("Widget B")
 
 # Printing the updated list
 print("Updated product names:", product_names)
+
+
+
+# Sets
+# A set is a collection of unique, unordered elements.
+# Sets are defined using curly braces {} or the set() function.
+# Defining a set of unique product IDs
+product_ids = {101, 102, 103, 104, 101}  # Duplicates are ignored
+# product_ids = set([101, 102, 103, 104, 101])  # same as above
+
+# Adding a new unique ID
+product_ids.add(105)
+
+# Removing an ID
+product_ids.discard(102)
+
+print("Unique product IDs:", product_ids)
