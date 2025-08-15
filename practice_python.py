@@ -34,3 +34,11 @@ print(str1 + " " + str2)
 
 # Repetition with strings
 print(str1 * 3)
+
+
+
+# Logical Operators
+x = True
+y = False
+print("Logical AND:", x and y)
+print("Logical OR:", x or y)
