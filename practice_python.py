@@ -82,3 +82,10 @@ for product, stock in products.items():
         print(f"{product} is in medium stock")
     else:
         print(f"{product} is in low stock")   
+
+
+# While loop example
+count = 0
+while count < 5:
+    print("Count:", count)
+    count += 1
