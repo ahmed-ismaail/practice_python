@@ -89,3 +89,13 @@ count = 0
 while count < 5:
     print("Count:", count)
     count += 1
+
+
+# Function to calculate average stock from product data
+def calculate_average_stock(stock_list):
+    total_stock = sum(stock_list)
+    return total_stock / len(stock_list)# len() returns the number of items in the list
+
+# Using the function with stock levels from product_data
+average_stock = calculate_average_stock(stock_levels)
+print("Average stock level:", average_stock)
