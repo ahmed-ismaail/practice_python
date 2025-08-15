@@ -52,3 +52,16 @@ elif product_stock > 100:
     print("Product is in medium stock")
 else:
     print("Product is in low stock")
+
+
+
+#for loop example
+products = ["a", "b", "c", "d"]
+stock_levels = [200, 150, 80, 50]
+for product, stock in zip(products, stock_levels):
+    if stock > 100:
+        print(f"{product} is in high stock")
+    elif stock > 50:
+        print(f"{product} is in medium stock")
+    else:
+        print(f"{product} is in low stock")    
