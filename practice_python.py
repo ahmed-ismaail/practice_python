@@ -115,3 +115,10 @@ print("Squared numbers:", squared)
 words = ["hello", "world", "python"]
 uppercase_words = list(map(lambda x: x.upper(), words))  # upper each word in the list
 print("uppercase words:", uppercase_words)
+
+
+# String concatenation example
+employee_name = "ahmed zayan"
+# Concatenation
+greeting = "Hello, " + employee_name + "!"
+print(greeting)
