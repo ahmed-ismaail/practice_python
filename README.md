@@ -3,7 +3,6 @@
 This is a simple project to practice python
 
 ## practicing the below
-* Setting Up the Python Environment
 * Python Basics for Data Engineering
 * Python Collections
 * File Handling in Python
