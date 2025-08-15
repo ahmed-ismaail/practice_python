@@ -139,3 +139,16 @@ print(f" middle 11 characters: {sample_text[10:21]}")  # Slicing to get the midd
 print("Lowercase:", sample_text.lower())
 print("Uppercase:", sample_text.upper())
 print("Replace:", sample_text.replace("text", "example"))
+
+
+# Error handling when reading a non-existent file
+try:
+    with open("datasets/nonexist_file.csv", "r") as file:
+        content = file.read()
+        print(content)
+except FileNotFoundError:
+    print("File not found. Please check the file path.")    
+else:
+    print("File read successfully.")
+finally:
+    print("Execution completed.")
