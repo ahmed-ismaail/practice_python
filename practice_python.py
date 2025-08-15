@@ -152,3 +152,16 @@ else:
     print("File read successfully.")
 finally:
     print("Execution completed.")
+
+
+# Tuples
+# A tuple is a collection of ordered, immutable (unchangeable) elements.
+# Unlike lists ([]), tuples use parentheses ().
+# Defining a tuple
+coordinates = (51.5074, -0.1278)  # Coordinates for London
+
+# Accessing tuple elements
+latitude = coordinates[0]
+longitude = coordinates[1]
+
+print(f"Latitude: {latitude}, Longitude: {longitude}")
