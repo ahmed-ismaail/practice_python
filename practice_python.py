@@ -222,3 +222,29 @@ product_info["testkey"] = "testvalue"
 product_info["Stock"] = 120
 
 print("Product Information:", product_info)
+
+
+
+# Handling Data Strcutures Effectively
+sales_records = [
+    {"Date": "2024-01-01", "Product": "Widget A", "Sales": 200},
+    {"Date": "2024-01-02", "Product": "Widget B", "Sales": 150},
+    {"Date": "2024-01-03", "Product": "Widget A", "Sales": 300},
+    {"Date": "2024-01-02", "Product": "Widget B", "Sales": 320}
+]
+
+print(type(sales_records))  # Check the type of sales_records
+print(type(sales_records[0]))  # Check the type of the first record in sales_records
+
+
+# Calculate total sales for each product
+total_sales = {}
+for record in sales_records:
+    product = record["Product"]
+    sales = record["Sales"]
+    if product in total_sales:
+        total_sales[product] += sales
+    else:
+        total_sales[product] = sales
+
+print("Total Sales by Product:", total_sales)
