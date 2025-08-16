@@ -1,3 +1,6 @@
+import os
+
+
 
 print("hello world") 
 
@@ -248,3 +251,24 @@ for record in sales_records:
         total_sales[product] = sales
 
 print("Total Sales by Product:", total_sales)
+
+
+
+# file handling (.txt) 
+
+# If datasets/ doesn't already exist, Python will throw a FileNotFoundError. To avoid that, you can ensure the folder exists:
+os.makedirs("datasets", exist_ok=True) 
+
+# open("datasets/sample_text.txt", "w"): Opens the file in write mode ("w"), which:
+# Creates the file if it doesn’t exist
+# Overwrites the file if it already exists
+# with: Ensures the file is properly closed after writing (even if there's an error)
+# file.write(...): Writes strings to the file. \n adds a newline after each line.
+with open("datasets/sample_text.txt", "w") as file:
+    file.write("Hello, Data Engineering!\n")
+    file.write("Working with text files in Python.\n")
+
+# Reading from a text file
+with open("datasets/sample_text.txt", "r") as file:
+    content = file.read()
+    print("Content of the text file:\n", content)
