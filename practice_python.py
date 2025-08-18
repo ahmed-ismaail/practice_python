@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import json
 
 
 
@@ -288,3 +289,80 @@ product_data.to_csv("datasets/product_data.csv", index=False)
 # Reading from a CSV file
 df = pd.read_csv("datasets/product_data.csv") 
 print("Content of product_data.csv:\n", df)
+
+
+
+
+# JSON Files (.json - JavaScript Object Notation)
+# Writing to a JSON file
+employee_data = [
+    {
+        "employee_id": 101,
+        "name": "Alice",
+        "department": "Engineering",
+        "projects": ["Project X", "Project Y"]
+    },
+    {
+        "employee_id": 102,
+        "name": "Bob",
+        "department": "Sales",
+        "projects": ["Project A", "Project B"]
+    }
+]
+
+# "w" stands for write mode.
+# If the file exists, it will be truncated (emptied) before writing new content.
+# If the file does not exist, it will be created
+with open("datasets/employees.json", "w") as json_file:
+    json.dump(employee_data, json_file, indent=4) #pump is used to write JSON data to a file, indent=4 makes it more readable
+
+# Reading from a JSON file
+with open("datasets/employees.json", "r") as json_file:
+    existing_data = json.load(json_file) # load is used to read JSON data from a file
+    print("Content of employees.json:\n", existing_data)
+
+new_employee_data = [
+    {
+        "employee_id": 101,
+        "name": "Ahmed",
+        "department": "Engineering",
+        "projects": ["Project X", "Project Y"]
+    },
+    {
+        "employee_id": 102,
+        "name": "Ismail",
+        "department": "Sales",
+        "projects": ["Project A", "Project B"]
+    },
+    {
+        "employee_id": 103,
+        "name": "Zayan",
+        "department": "Finance",
+        "projects": ["Project L", "Project M"]
+    }
+]
+
+
+# Iterates over each emp (employee) in the list existing_data
+# Uses emp["employee_id"] as the key
+# Uses the entire emp dictionary as the value
+employee_dict = {emp["employee_id"]: emp for emp in existing_data}  # Convert list to dictionary for easier access
+
+for new_emp in new_employee_data:
+    if new_emp["employee_id"] in employee_dict:
+        # If employee already exists, update their information
+        employee_dict[new_emp["employee_id"]].update(new_emp)
+    else:
+        # If employee does not exist, add them
+        employee_dict[new_emp["employee_id"]] = new_emp
+
+updated_employee_data = list(employee_dict.values())  # Convert back to list for JSON serialization
+
+# Writing the updated employee data back to the JSON file
+with open("datasets/employees.json", "w") as json_file:
+    json.dump(updated_employee_data, json_file, indent=4) #pump is used to write JSON data to a file, indent=4 makes it more readable
+
+# Reading from a JSON file
+with open("datasets/employees.json", "r") as json_file:
+    new_data = json.load(json_file) # load is used to read JSON data from a file
+    print("Content of employees.json:\n", new_data)

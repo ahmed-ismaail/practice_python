@@ -1,0 +1,29 @@
+[
+    {
+        "employee_id": 101,
+        "name": "Ahmed",
+        "department": "Engineering",
+        "projects": [
+            "Project X",
+            "Project Y"
+        ]
+    },
+    {
+        "employee_id": 102,
+        "name": "Ismail",
+        "department": "Sales",
+        "projects": [
+            "Project A",
+            "Project B"
+        ]
+    },
+    {
+        "employee_id": 103,
+        "name": "Zayan",
+        "department": "Finance",
+        "projects": [
+            "Project L",
+            "Project M"
+        ]
+    }
+]
