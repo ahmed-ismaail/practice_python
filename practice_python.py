@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 
 
 
@@ -272,3 +273,18 @@ with open("datasets/sample_text.txt", "w") as file:
 with open("datasets/sample_text.txt", "r") as file:
     content = file.read()
     print("Content of the text file:\n", content)
+
+
+
+# CSV Files (.csv - Comma Separated Values)
+# Writing a DataFrame to a CSV file
+product_data = pd.DataFrame({
+    "Product": ["Widget A", "Widget B", "Widget C"],
+    "Price": [10.99, 14.99, 7.99],
+    "Stock": [50, 20, 100]
+})
+product_data.to_csv("datasets/product_data.csv", index=False)
+
+# Reading from a CSV file
+df = pd.read_csv("datasets/product_data.csv") 
+print("Content of product_data.csv:\n", df)
