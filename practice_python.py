@@ -366,3 +366,19 @@ with open("datasets/employees.json", "w") as json_file:
 with open("datasets/employees.json", "r") as json_file:
     new_data = json.load(json_file) # load is used to read JSON data from a file
     print("Content of employees.json:\n", new_data)
+
+
+# -------------------------------------------------------------------------------------------------
+# Parquet Files (.parquet - Columnar Storage Format)
+# Parquet is a columnar storage file format optimized for use with big data processing frameworks.
+# Writing a DataFrame to a Parquet file
+user_data = pd.DataFrame({
+    "user_id": range(1, 6),
+    "age": [23, 35, 45, 30, 27],
+    "purchase_amount": [100.5, 200.75, 300.1, 150.0, 250.5]
+})
+user_data.to_parquet("datasets/user_purchase.parquet", index=False)
+
+df_user = pd.read_parquet("datasets/user_purchase.parquet")
+print("Content of user_purchase.parquet:\n", df_user)
+print(df_user.columns)  # Print the columns of the DataFrame
