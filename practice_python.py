@@ -399,3 +399,39 @@ sales_data.to_excel("datasets/sales_data.xlsx", index=False)
 df_sales = pd.read_excel("datasets/sales_data.xlsx")
 print("Content of sales_data.xlsx:\n", df_sales)
 print(df_sales.columns)  # Print the columns of the DataFrame
+
+
+
+
+# -------------------------------------------------------------------------------------------------
+# 1. Titanic Sample Data (CSV)
+titanic_data = pd.DataFrame({
+    "PassengerId": [1, 2, 3, 4, 5, 3, 5],  # Duplicate Passenger IDs for demonstration
+    "Survived": [0, 1, 1, 0, 1, 1, 1], # Adding duplicate Survived values
+    "Pclass": [3, 1, 3, 1, 3, 3, 3], # Adding duplicate Pclass values
+    "Name": ["John Doe", "Jane Smith", "Alice Brown", "William Johnson", "Linda Lee", "Alice Brown", "Linda Lee"],  # Duplicate Names
+    "Sex": ["male", "female", "female", "male", "female", "female", "female"],
+    "Age": [22, 38, None, 35, None, None, 28],  # Adding null values in Age
+    "Fare": [7.25, 71.2833, None, 53.1, 8.05, None, 8.05]  # Adding null values in Fare, with duplicates
+})
+
+titanic_data.to_csv("datasets/titanic.csv", index=False)
+
+# Loading the Titanic dataset
+df_titanic = pd.read_csv("datasets/titanic.csv")
+print("First 5 rows of Titanic dataset:\n", df_titanic.head()) #head() displays the first 5 rows of the DataFrame
+
+
+# Data Cleaning and Preprocessing Techniques
+print("Missing values:\n", df_titanic.isnull().sum())
+
+df_titanic['Age'].fillna(df_titanic['Age'].median(), inplace=True) # Fill missing Age values with the median, inplace=True modifies the DataFrame directly without creating a new one
+df_titanic.dropna(subset=['Fare'], inplace=True) # Drop rows where Fare is missing, inplace=True modifies the DataFrame directly without creating a new one
+
+
+print("Data after handling missing values:\n", df_titanic.isnull().sum()) 
+
+df_titanic.drop_duplicates(inplace=True)  # Remove duplicate rows, inplace=True modifies the DataFrame directly without creating a new one
+print("Data after removing duplicates:\n", df_titanic.shape) 
+
+#--------------------------------------------------------------------------------------------------
