@@ -382,3 +382,20 @@ user_data.to_parquet("datasets/user_purchase.parquet", index=False)
 df_user = pd.read_parquet("datasets/user_purchase.parquet")
 print("Content of user_purchase.parquet:\n", df_user)
 print(df_user.columns)  # Print the columns of the DataFrame
+
+
+
+# -------------------------------------------------------------------------------------------------
+# Excel Files (.xlsx - Microsoft Excel Format)
+# Writing a DataFrame to an Excel file
+# Writing to an Excel file
+sales_data = pd.DataFrame({
+    "Date": pd.date_range(start="2024-01-01", periods=5, freq="D"), # Generates a date range starting from 2024-01-01 for 5 days
+    "Product": ["Widget A", "Widget B", "Widget A", "Widget B", "Widget C"],
+    "Sales": [200, 150, 300, 250, 100]
+})
+sales_data.to_excel("datasets/sales_data.xlsx", index=False)
+
+df_sales = pd.read_excel("datasets/sales_data.xlsx")
+print("Content of sales_data.xlsx:\n", df_sales)
+print(df_sales.columns)  # Print the columns of the DataFrame
