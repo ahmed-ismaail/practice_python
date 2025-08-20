@@ -396,7 +396,7 @@ sales_data = pd.DataFrame({
     "Product": ["Widget A", "Widget B", "Widget A", "Widget B", "Widget C"],
     "Sales": [200, 150, 300, 250, 100]
 })
-sales_data.to_excel("datasets/sales_data.xlsx", index=False)
+# sales_data.to_excel("datasets/sales_data.xlsx", index=False) #commented out to avoid overwriting every time the code is run
 
 df_sales = pd.read_excel("datasets/sales_data.xlsx")
 print("Content of sales_data.xlsx:\n", df_sales)
@@ -459,14 +459,14 @@ print("Mean Fare and Age by Passenger class:\n", grouped_data)  # Display the gr
 # Data Visualization with Matplotlib
 
 
-df_titanic['Age'].plot(kind='hist', bins=20, title='Age Distribution')
-plt.xlabel('Age')
-plt.show()
+# df_titanic['Age'].plot(kind='hist', bins=20, title='Age Distribution')
+# plt.xlabel('Age')
+# plt.show()
 
-grouped_data.plot(kind='bar', x='Pclass', y='Fare', title='Average Fare by Passenger Class')
-plt.xlabel('Passenger Class')
-plt.ylabel('Average Fare')
-plt.show()
+# grouped_data.plot(kind='bar', x='Pclass', y='Fare', title='Average Fare by Passenger Class')
+# plt.xlabel('Passenger Class')
+# plt.ylabel('Average Fare')
+# plt.show()
 
 
 
@@ -499,3 +499,24 @@ print("Multiplication:", a * b)
 
 # Element-wise square root
 print("Square root of 'a':", np.sqrt(a))
+
+
+
+#--------------------------------------------------------------------------------------------------
+#Indexing and Slicing
+
+# 1D array
+array_1d = np.array([10, 20, 30, 40, 50])
+
+# Accessing the first and last element
+print("First element:", array_1d[0])
+print("Last element:", array_1d[-1])
+
+# Slicing to access the first three elements
+print("First three elements:", array_1d[:3])
+
+# Boolean indexing to find elements greater than 25
+print("Elements greater than 25:", array_1d[array_1d > 25])
+
+df = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
+print(df.iloc[0, 1])#means: first row (0), second column (1) , this will print 4
