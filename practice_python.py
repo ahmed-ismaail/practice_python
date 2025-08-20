@@ -482,3 +482,20 @@ print("1D Array:", array_1d)
 # 2D array from a list of lists
 array_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print("2D Array:\n", array_2d)
+
+
+
+#--------------------------------------------------------------------------------------------------
+#array operations
+
+a = np.array([10, 20, 30])
+b = np.array([1, 2, 3])
+
+# Element-wise addition
+print("Addition:", a + b)
+
+# Element-wise multiplication
+print("Multiplication:", a * b)
+
+# Element-wise square root
+print("Square root of 'a':", np.sqrt(a))
