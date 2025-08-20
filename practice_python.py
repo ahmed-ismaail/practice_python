@@ -3,7 +3,8 @@ import pandas as pd
 import numpy as np
 import json
 import matplotlib.pyplot as plt
-
+from datetime import datetime
+from datetime import timedelta
 
 
 print("hello world") 
@@ -520,3 +521,66 @@ print("Elements greater than 25:", array_1d[array_1d > 25])
 
 df = pd.DataFrame({"A": [1, 2, 3], "B": [4, 5, 6]})
 print(df.iloc[0, 1])#means: first row (0), second column (1) , this will print 4
+
+
+
+
+#--------------------------------------------------------------------------------------------------
+# Parsing and Formatting Date Time Data
+
+# Parsing a date string into a datetime object
+date_string = "2025-08-20 14:10:00"
+date_obj =  datetime.strptime(date_string, "%Y-%m-%d %H:%M:%S")
+print("Parsed Date:", date_obj)
+
+
+# Specifier	    What it means	        Why this letter? (likely)
+# ---------     ------------------      -------------------------
+# %B	        Full month name	        B for B as in Big month name (vs %b short month)
+# %d	        Day of the month	    d for day
+# %Y	        Year (4-digit)	        Y for Year (capital Y to distinguish from %y)
+# %I	        Hour (12-hour clock)	I for Internal 12-hour clock (distinguishes from %H)
+# %M	        Minutes	                M for Minute
+# %p	        AM/PM marker	        p for post meridiem (after midday)
+formatted_date = date_obj.strftime("%B %d, %Y - %I:%M %p")
+print("Formatted Date:", formatted_date)  # Output: August 20, 2025 - 02:10 PM
+
+
+current_date = datetime.now()  # Get the current date and time
+future_date = current_date + timedelta(days=7)  # Add 7 days to the current date
+print("Current Date:", current_date)
+print("Future Date:", future_date)
+
+# Extracting specific components
+print("Year:", current_date.year)
+print("Month:", current_date.month)
+print("Day:", current_date.day) 
+print("Hour:", current_date.hour)
+print("Minute:", current_date.minute)
+print("Second:", current_date.second)
+
+
+# Weather Data (Time-Series CSV)
+df_weather = pd.DataFrame({
+    "timestamp": pd.date_range(start="2025-01-01", periods=12, freq="M"),
+    "temperature": np.random.uniform(30, 45, 12),
+    "humidity": np.random.uniform(30, 90, 12)
+})
+df_weather.to_csv("datasets/weather_data.csv", index=False)
+print("Weather Data:\n", df_weather)
+print("Weather Data Types:\n", df_weather.dtypes)  # Display the data types of the DataFrame columns
+
+df_weather['timestamp'] = pd.to_datetime(df_weather['timestamp'])
+
+print("parsed timestamp:\n", df_weather.head())  # Display the first 5 rows of the DataFrame
+print("Weather Data Types:\n", df_weather.dtypes)  # Display the data types of the DataFrame columns
+
+start_date = '2025-01-01'
+end_date = '2025-06-30'
+filtered_df = df_weather[df_weather['timestamp'].between(start_date, end_date, inclusive="both")]  # Filter rows between two dates
+print("Filtered Weather Data:\n", filtered_df)  # Display the filtered DataFrame
+
+
+df_weather['time_diff'] = df_weather["timestamp"].diff()
+print("Weather Data with Time Difference:\n", df_weather)  # Display the DataFrame with the new time_diff column (number of days between each timestamp)
+
