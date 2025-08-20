@@ -641,3 +641,63 @@ df_api_weather_data = pd.DataFrame({
 # df_api_weather_data.to_csv("datasets/api_weather_data.csv", index=False) # stopping from overwritting the csv file
 print("api weather data saved to api_weather_data.csv")
 
+
+
+#--------------------------------------------------------------------------------------------------
+#building an api data pipeline
+
+def fetch_weather_data(city, api_key):
+    """Extract weather data for a specific city using WeatherAPI."""
+    api_url = "http://api.weatherapi.com/v1/current.json"
+    params = {
+        "key": api_key,
+        "q": city,
+        "aqi": "no"
+    }
+    try:
+        response = requests.get(api_url, params=params, timeout=5)
+        response.raise_for_status()
+        api_response = response.json() 
+        print("Data retrieved successfully!")
+        print("Weather Data:", api_response)  # Print the weather data
+        return api_response
+    except requests.exceptions.Timeout:
+        print("request timed out")
+        return None
+    except requests.exceptions.RequestException as e:
+        print("request failed:", e)
+        return None
+
+
+def transform_weather_data(data):
+    """Transform weather data by selecting relevant fields."""
+    if data:
+        df_transformed_data = pd.DataFrame({
+            "city": [data["location"]["name"]],
+            "temperature_c": [data["current"]["temp_c"]],
+            "humidity": [data["current"]["humidity"]],
+            "condition": [data["current"]["condition"]["text"]]
+        })
+        return df_transformed_data
+    else:
+        return None
+
+
+def load_data_to_csv(data, filename="datasets/weather_data_pipeline.csv"):
+    """Load transformed data into a CSV file."""
+    if not data.empty:
+        data.to_csv(filename, index=False)
+        print(f"data loaded successfully into {filename}")
+    else:
+        print("no data to load")
+
+city = 'Luxor'
+
+#Extract
+raw_data = fetch_weather_data(city, api_key)
+
+#Transform
+transformed_Data = transform_weather_data(raw_data)
+
+#Load
+# load_data_to_csv(transformed_Data)
