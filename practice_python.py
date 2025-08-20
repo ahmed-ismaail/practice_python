@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 import json
 import matplotlib.pyplot as plt
 
@@ -466,3 +467,18 @@ grouped_data.plot(kind='bar', x='Pclass', y='Fare', title='Average Fare by Passe
 plt.xlabel('Passenger Class')
 plt.ylabel('Average Fare')
 plt.show()
+
+
+
+
+#----------------------------------------------------------------------------------------------------
+# Basics of NumPy Arrays
+
+
+# 1D array from a list
+array_1d = np.array([1, 2, 3, 4, 5])
+print("1D Array:", array_1d)
+
+# 2D array from a list of lists
+array_2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print("2D Array:\n", array_2d)
