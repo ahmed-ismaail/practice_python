@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import json
+import matplotlib.pyplot as plt
 
 
 
@@ -450,3 +451,18 @@ print("Data sorted by Age in descending order:\n", df_titanic.head())  # Display
 grouped_data = df_titanic.groupby('Pclass')[['Fare', 'Age']].mean().reset_index()  
 
 print("Mean Fare and Age by Passenger class:\n", grouped_data)  # Display the grouped data
+
+
+
+#---------------------------------------------------------------------------------------------------
+# Data Visualization with Matplotlib
+
+
+df_titanic['Age'].plot(kind='hist', bins=20, title='Age Distribution')
+plt.xlabel('Age')
+plt.show()
+
+grouped_data.plot(kind='bar', x='Pclass', y='Fare', title='Average Fare by Passenger Class')
+plt.xlabel('Passenger Class')
+plt.ylabel('Average Fare')
+plt.show()
