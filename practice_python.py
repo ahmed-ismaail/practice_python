@@ -434,4 +434,19 @@ print("Data after handling missing values:\n", df_titanic.isnull().sum())
 df_titanic.drop_duplicates(inplace=True)  # Remove duplicate rows, inplace=True modifies the DataFrame directly without creating a new one
 print("Data after removing duplicates:\n", df_titanic.shape) 
 
+
+
 #--------------------------------------------------------------------------------------------------
+# Data Manipulation and Aggregation
+
+high_fare_passengers = df_titanic[df_titanic['Fare'] > 50]  # Filter rows where Age is less than 18
+print("Passengers with fare greater than 50:\n", high_fare_passengers.head())  # Display the first 5 rows of the filtered DataFrame
+
+df_titanic_sorted = df_titanic.sort_values(by='Age', ascending=False)  
+print("Data sorted by Age in descending order:\n", df_titanic.head())  # Display the first 5 rows of the sorted DataFrame
+
+# Group by Pclass and calculate the mean Fare and Age3
+# .reset_index() Converts the result back into a regular DataFrame (instead of keeping "Pclass" as the index).
+grouped_data = df_titanic.groupby('Pclass')[['Fare', 'Age']].mean().reset_index()  
+
+print("Mean Fare and Age by Passenger class:\n", grouped_data)  # Display the grouped data
