@@ -3,8 +3,11 @@ import pandas as pd
 import numpy as np
 import json
 import matplotlib.pyplot as plt
+import requests
 from datetime import datetime
 from datetime import timedelta
+from dotenv import load_dotenv
+
 
 
 print("hello world") 
@@ -583,4 +586,58 @@ print("Filtered Weather Data:\n", filtered_df)  # Display the filtered DataFrame
 
 df_weather['time_diff'] = df_weather["timestamp"].diff()
 print("Weather Data with Time Difference:\n", df_weather)  # Display the DataFrame with the new time_diff column (number of days between each timestamp)
+
+
+
+#--------------------------------------------------------------------------------------------------
+# Environment Variables and API Requests
+# Weather API Example
+
+# API Key: 957e4d36398c4ae187b122926252008
+# http://api.weatherapi.com/v1/current.json?key=957e4d36398c4ae187b122926252008&q=egypt&aqi=no
+
+load_dotenv()  # Load environment variables from .env file
+ 
+api_key = os.getenv("API_Key")  # Get the API key from environment variables
+
+# print (api_key)
+
+# Define the API endpoint and parameters
+api_url = "http://api.weatherapi.com/v1/current.json"
+params = {
+    "key": api_key,
+    "q": "egypt",
+    "aqi": "no"
+}
+
+
+try:
+    # params=params
+    # Sends query parameters in the URL (after the ?).
+    
+    # timeout=5
+    # Sets a timeout of 5 seconds.
+    # If the server doesn’t respond in 5 seconds, the request will raise a requests.exceptions.Timeout error.
+    # Good practice to prevent your app from hanging forever if the server is slow.
+    response = requests.get(api_url, params=params, timeout=5)  # Make a GET request to the API
+    response.raise_for_status() # Raises an error for bad responses (4xx/5xx)
+    weather_data = response.json()
+    print("Data retrieved successfully!")
+    print("Weather Data:", weather_data)  # Print the weather data
+except requests.exceptions.Timeout:
+    print("request timed out.")
+except requests.exceptions.RequestException as e:
+    print("request failed:", e)
+
+
+df_api_weather_data = pd.DataFrame({
+    "city": [weather_data["location"]["name"]],
+    "temperature_c": [weather_data["current"]["temp_c"]],
+    "humidity": [weather_data["current"]["humidity"]],
+    "condition": [weather_data["current"]["condition"]["text"]]
+})
+
+
+df_api_weather_data.to_csv("datasets/api_weather_data.csv", index=False)
+print("api weather data saved to api_weather_data.csv")
 
