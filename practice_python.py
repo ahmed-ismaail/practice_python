@@ -569,7 +569,7 @@ df_weather = pd.DataFrame({
     "temperature": np.random.uniform(30, 45, 12),
     "humidity": np.random.uniform(30, 90, 12)
 })
-df_weather.to_csv("datasets/weather_data.csv", index=False)
+# df_weather.to_csv("datasets/weather_data.csv", index=False) #commented this line to stop overwritting the file for every run
 print("Weather Data:\n", df_weather)
 print("Weather Data Types:\n", df_weather.dtypes)  # Display the data types of the DataFrame columns
 
@@ -638,6 +638,6 @@ df_api_weather_data = pd.DataFrame({
 })
 
 
-df_api_weather_data.to_csv("datasets/api_weather_data.csv", index=False)
+# df_api_weather_data.to_csv("datasets/api_weather_data.csv", index=False) # stopping from overwritting the csv file
 print("api weather data saved to api_weather_data.csv")
 
