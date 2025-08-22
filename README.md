@@ -16,7 +16,4 @@ This is a simple project to practice python
 * Numerical Computing with NumPy
 * Working with Dates and Times
 * Working with APIs and External Connections
-* Object Oriented Programming (OOP)
 * Building ETL Pipelines
-* Data Quality, Testing, and Code Standards
-* Building and Deploying Python Packages
